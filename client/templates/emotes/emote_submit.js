@@ -4,8 +4,7 @@ Template.emoteSubmit.events({
 
     var emote = {
       emotion: $(e.target).find('[name=emotion]').val(),
-      explanation: $(e.target).find('[name=explanation]').val(),
-      user: Meteor.user()
+      explanation: $(e.target).find('[name=explanation]').val()
     };
 
     emote._id = Emotes.insert(emote);
