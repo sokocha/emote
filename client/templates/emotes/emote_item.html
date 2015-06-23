@@ -1,7 +1,9 @@
 <template name="emoteItem">
+  {{#linkTo route="emotePage"}}
   <div class="emote" id="{{emotion}}">
     <div class="emote-content">
       <h3><span class="badge">{{emotion}}</span>&nbsp;{{explanation}}</h3>
     </div>
   </div>
+  {{/linkTo}}
 </template>
