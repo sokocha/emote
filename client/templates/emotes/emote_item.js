@@ -11,7 +11,7 @@ Template.emoteItem.helpers({
     } else if (this.emotion === 'Angry') {
       return '😡';
     } else if (this.emotion === 'Tender') {
-      return '😍';
+      return '💕';
     } else if (this.emotion === 'Prideful') {
       return '😏';
     } else if (this.emotion === 'Meh') {
