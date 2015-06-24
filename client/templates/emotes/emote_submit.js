@@ -7,8 +7,14 @@ Template.emoteSubmit.events({
       explanation: $(e.target).find('[name=explanation]').val()
     };
 
-    emote._id = Emotes.insert(emote);
-    Router.go('emotePage',emote)
+
+    Meteor.call('emoteInsert', emote, function(error, result) {
+      if (error)
+        return alert(error.reason);
+
+      Router.go('emotePage', {_id: result._id});
+    });
+    
   }
 
 });
