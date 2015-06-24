@@ -2,7 +2,9 @@
   {{#linkTo route="emotePage"}}
   <div class="emote" id="{{emotion}}">
     <div class="emote-content">
-      <h3><span class="badge">{{emotion}}</span>&nbsp;{{explanation}}</h3>
+      {{#if emoticon}}
+      <h3><span class="badge">{{emoticon}}{{emotion}}</span>&nbsp;{{explanation}}</h3>
+      {{/if}}
     </div>
   </div>
   {{/linkTo}}
