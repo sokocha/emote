@@ -10,11 +10,24 @@ Template.emoteSubmit.events({
 
     Meteor.call('emoteInsert', emote, function(error, result) {
       if (error)
-        return alert(error.reason);
+        return throwError(error.reason);
 
       Router.go('emotePage', {_id: result._id});
     });
     
   }
 
+});
+
+Template.emoteSubmit.onCreated(function() { 
+  Session.set('emoteSubmitErrors', {});
+});
+
+Template.emoteSubmit.helpers({ 
+  errorMessage: function(field) {
+    return Session.get('emoteSubmitErrors')[field]; 
+},
+  errorClass: function (field) {
+    return !!Session.get('emoteSubmitErrors')[field] ? 'has-error' : '';
+  } 
 });

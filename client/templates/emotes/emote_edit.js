@@ -8,7 +8,7 @@ Template.emoteEdit.events({
   }
   Emotes.update(currentEmoteId, {$set: emoteProperties}, function(error) { if (error) {
         // display the error to the user
-        alert(error.reason); } else {
+        throwError(error.reason); } else {
           Router.go('emotePage', {_id: currentEmoteId});
         }
       }); 
