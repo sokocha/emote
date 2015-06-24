@@ -5,6 +5,10 @@
       {{#if emoticon}}
       <h3><span class="badge">{{emoticon}}{{emotion}}</span>&nbsp;{{explanation}}</h3>
       {{/if}}
+      <p>
+        by {{author}}
+        {{#if ownPost}}<a href="{{pathFor 'emoteEdit'}}">&nbsp;<i class="fa fa-pencil-square-o">Edit</i></a>{{/if}}
+      </p>
     </div>
   </div>
   {{/linkTo}}

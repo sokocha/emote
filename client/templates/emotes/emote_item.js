@@ -19,5 +19,8 @@ Template.emoteItem.helpers({
     } else if (this.emotion === 'Ashamed') {
       return '😅';
     }
+  },
+  ownPost: function () {
+    return this.userId === Meteor.userId();
   }
 });
