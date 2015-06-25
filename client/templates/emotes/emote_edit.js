@@ -22,7 +22,7 @@ Template.emoteEdit.events({
 
   var errors = validateEmote(emoteProperties);
 
-  if (errors.emotion || errors.explanation)
+  if (errors.explanation)
     return Session.set('emoteEditErros',errors)
 
   Emotes.update(currentEmoteId, {$set: emoteProperties}, function(error) { if (error) {
