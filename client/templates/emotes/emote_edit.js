@@ -1,3 +1,16 @@
+Template.emoteEdit.onCreated(function() {
+  Session.set('emoteEditErrors', {});
+});
+
+Template.emoteEdit.helpers({
+  errorMessage: function (field) {
+    return Session.get('emoteEditErros')[field];
+  },
+  errorClass:function (field) {
+    return !!Session.get('emoteEditErrors')[field] ? 'has-error' : '';
+  }
+});
+
 Template.emoteEdit.events({ 
 
   'submit form': function(e) {
@@ -6,6 +19,12 @@ Template.emoteEdit.events({
   var emoteProperties = {
     explanation: $(e.target).find('[name=explanation]').val()
   }
+
+  var errors = validateEmote(emoteProperties);
+
+  if (errors.emotion || errors.explanation)
+    return Session.set('emoteEditErros',errors)
+
   Emotes.update(currentEmoteId, {$set: emoteProperties}, function(error) { if (error) {
         // display the error to the user
         throwError(error.reason); } else {
@@ -24,3 +43,4 @@ Template.emoteEdit.events({
     } 
   }
 });
+
