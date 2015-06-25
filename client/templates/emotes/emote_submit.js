@@ -7,6 +7,10 @@ Template.emoteSubmit.events({
       explanation: $(e.target).find('[name=explanation]').val()
     };
 
+    var errors = validateEmote(emote);
+    if (errors.explanation || errors.emotion)
+      return Session.set('emoteSubmitErrors',errors);
+
 
     Meteor.call('emoteInsert', emote, function(error, result) {
       if (error)
@@ -29,5 +33,6 @@ Template.emoteSubmit.helpers({
 },
   errorClass: function (field) {
     return !!Session.get('emoteSubmitErrors')[field] ? 'has-error' : '';
-  } 
+  },
+
 });
