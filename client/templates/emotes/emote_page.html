@@ -1,5 +1,17 @@
 <template name="emotePage">
   <div class="emote-page page">
     {{>emoteItem}}
+
+    <ul class="comments">
+      {{#each comments}}
+        {{> commentItem}}
+      {{/each}}
+    </ul>
+
+    {{#if currentUser}}
+      {{> commentSubmit}}
+    {{else}}
+      <p>Please login to comment</p>
+    {{/if}}
   </div>
 </template>

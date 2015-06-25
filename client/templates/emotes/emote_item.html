@@ -7,6 +7,7 @@
       {{/if}}
       <p>
         by {{author}}
+        <a href="{{pathFor 'emotePage'}}">{{commentsCount}}&nbsp;comments</a>
         {{#if ownPost}}<a href="{{pathFor 'emoteEdit'}}">&nbsp;<i class="fa fa-pencil-square-o">Edit</i></a>{{/if}}
       </p>
     </div>

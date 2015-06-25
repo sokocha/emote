@@ -3,35 +3,38 @@ if (Emotes.find().count() === 0)  {
 
   // create two users
   var tomId = Meteor.users.insert({ 
-    profile: { name: 'Tom Coleman' }
+    username: 'Tom Coleman'
   });
   var tom = Meteor.users.findOne(tomId); 
 
   var sachaId = Meteor.users.insert({
-      profile: { name: 'Sacha Greif' }
+      username: 'Sacha Greif' 
     });
 
   var sacha = Meteor.users.findOne(sachaId);
 
   var jealousyId = Emotes.insert({
     explanation: "I wish I could be as cool as her",
-    emotion: 'Jealous'
+    emotion: 'Jealous',
+    author: tom.username
   });
 
   var excitementId = Emotes.insert({
     explanation: " I get to travel to the moon!",
-    emotion: 'Excited'
+    emotion: 'Excited',
+    author: sacha.username
   });
 
   var angerId = Emotes.insert({
     explanation: "Arsenal lost the league again!",
-    emotion: 'Angry'
+    emotion: 'Angry',
+    author: tom.username
   });
 
   Comments.insert({
     emoteId: excitementId,
     userId: sacha._id,
-    author: sacha.profile.name,
+    author: sacha.username,
     submitted: new Date (now - 5 * 3500 * 1000),
     body: "lol don't jealous me too much now. Keep trying and one day you'll get there."
   });
@@ -39,7 +42,7 @@ if (Emotes.find().count() === 0)  {
   Comments.insert({
     emoteId: jealousyId,
     userId: tom._id,
-    author: tom.profile.name,
+    author: tom.username,
     submitted: new Date (now - 7 * 3500 * 1000),
     body: "lol don't jealous me too much now. Keep trying and one day you'll get there."
   });
