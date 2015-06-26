@@ -8,8 +8,8 @@ Template.notifications.helpers({
 });
 
 Template.notificationItem.helpers({
-  notificationPostPath: function() {
-    return Router.routes.postPage.path({_id: this.postId});
+  notificationEmotePath: function() {
+    return Router.routes.emotePage.path({_id: this.emoteId});
   }
 })
 
