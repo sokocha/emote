@@ -2,6 +2,7 @@ Meteor.publish('emotes', function()  {
   return Emotes.find();
 });
 
-Meteor.publish('comments', function() {
-  return Comments.find();
+Meteor.publish('comments', function(emoteId) {
+  check (emoteId, String);
+  return Comments.find({emoteId: emoteId});
 });
