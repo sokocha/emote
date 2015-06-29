@@ -1,4 +1,8 @@
 Meteor.publish('emotes', function(options)  {
+  check(options, {
+    sort: Object,
+    limit: Number
+  });
   return Emotes.find({}, options);
 });
 
