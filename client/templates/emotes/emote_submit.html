@@ -3,7 +3,12 @@
     <div class="form-group {{errorClass 'emotion'}}">
       <label class="control-label" for="emotion">I feel ...</label>
       <div class="controls">
-        <input name="emotion" id="emotion" type="text" value="" class="form-control">
+        <select id="emotion-select">
+          <option disabled="disabled" selected="selected"> Select an emotion</option>
+          {{#each emotionChoices}}
+            <option value="{{this}}" name="emotion" id="emotion" class="form-control">{{this}}</option>
+          {{/each}}
+        </select>
         <span class="help-block">{{errorMessage 'emotion'}}</span>
       </div>
     </div> 

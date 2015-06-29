@@ -1,9 +1,11 @@
 Template.emoteSubmit.events({
+
+
   'submit form': function(e) {
     e.preventDefault();
 
     var emote = {
-      emotion: $(e.target).find('[name=emotion]').val(),
+      emotion: $('select').prop('selected',true).val(),
       explanation: $(e.target).find('[name=explanation]').val()
     };
 
@@ -34,5 +36,7 @@ Template.emoteSubmit.helpers({
   errorClass: function (field) {
     return !!Session.get('emoteSubmitErrors')[field] ? 'has-error' : '';
   },
-
+  emotionChoices: function() {
+    return ["Ashamed","Angry", "Excited", "Happy", "Jealous", "Meh", "Prideful", "Sad", "Tender"]
+  }
 });
