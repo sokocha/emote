@@ -1,6 +1,11 @@
-Meteor.publish('emotes', function()  {
-  return Emotes.find();
+Meteor.publish('emotes', function(options)  {
+  return Emotes.find({}, options);
 });
+
+Meteor.publish('singleEmote', function(id) {
+  check(id,String)
+  return Emotes.find(id);
+})
 
 Meteor.publish('comments', function(emoteId) {
   check (emoteId, String);
